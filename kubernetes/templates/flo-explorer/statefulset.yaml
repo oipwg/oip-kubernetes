@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: flo-explorer
+spec:
+  serviceName: "flo-service"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flo-explorer
+  template:
+    metadata:
+      labels:
+        app: flo-explorer
+    spec:
+      containers:
+      - name: flo-explorer
+        image: oipwg/flo-explorer:5.0.13.2
+        ports:
+        - containerPort: 80
+        env:
+        - name: BLOCKCHAIN_BOOTSTRAP
+          valueFrom:
+            configMapKeyRef:
+              name: flo-explorer-config
+              key: BLOCKCHAIN_BOOTSTRAP_URL
+        volumeMounts:
+        - name: data
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: standard
+      resources:
+        requests:
+          storage: 50Gi

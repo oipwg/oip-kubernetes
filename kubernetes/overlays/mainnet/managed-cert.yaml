@@ -1,0 +1,12 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: openindex-managed-cert
+spec:
+  domains:
+    - openindex.dev
+    - www.openindex.dev
+    - flo.openindex.dev
+    - flocha.in
+    - www.flocha.in
+    - mainnet.flocha.in
