@@ -7,6 +7,6 @@ spec:
     - openindex.dev
     - www.openindex.dev
     - flo.openindex.dev
-    - flocha.in
-    - www.flocha.in
-    - mainnet.flocha.in
+    # - flocha.in
+    # - www.flocha.in
+    # - mainnet.flocha.in

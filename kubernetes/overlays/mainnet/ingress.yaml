@@ -1,10 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: flo-explorer-ingress
+  name: openindex-ingress
   annotations:
     kubernetes.io/ingress.global-static-ip-name: "openindex-ingress"
-    networking.gke.io/managed-certificates: flo-explorer-managed-cert
+    networking.gke.io/managed-certificates: openindex-managed-cert
 spec:
   rules:
   - host: "openindex.dev"
@@ -37,33 +37,33 @@ spec:
             name: flo-explorer-service
             port:
               number: 80
-  - host: "flocha.in"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: flo-explorer-service
-            port:
-              number: 80
-  - host: "www.flocha.in"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: flo-explorer-service
-            port:
-              number: 80
-  - host: "mainnet.flocha.in"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: flo-explorer-service
-            port:
-              number: 80
+  # - host: "flocha.in"
+  #   http:
+  #     paths:
+  #     - path: /
+  #       pathType: Prefix
+  #       backend:
+  #         service:
+  #           name: flo-explorer-service
+  #           port:
+  #             number: 80
+  # - host: "www.flocha.in"
+  #   http:
+  #     paths:
+  #     - path: /
+  #       pathType: Prefix
+  #       backend:
+  #         service:
+  #           name: flo-explorer-service
+  #           port:
+  #             number: 80
+  # - host: "mainnet.flocha.in"
+  #   http:
+  #     paths:
+  #     - path: /
+  #       pathType: Prefix
+  #       backend:
+  #         service:
+  #           name: flo-explorer-service
+  #           port:
+  #             number: 80
