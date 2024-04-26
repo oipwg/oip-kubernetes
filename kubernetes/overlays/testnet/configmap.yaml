@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flo-explorer-config
+data:
+  NETWORK: "testnet"
+  BLOCKCHAIN_BOOTSTRAP_URL: "https://storage.googleapis.com/blockchain-bootstraps/flo-explorer_testnet-bootstrap_block-3076003_26-apr-2024.tar.gz"

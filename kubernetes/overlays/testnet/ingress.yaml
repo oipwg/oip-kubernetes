@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: openindex-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "testnet-ingress"
+    networking.gke.io/managed-certificates: openindex-managed-cert
+spec:
+  rules:
+  - host: "flo.testnet.openindex.dev"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: flo-explorer-service
+            port:
+              number: 80
+  - host: "testnet.flocha.in"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: flo-explorer-service
+            port:
+              number: 80
